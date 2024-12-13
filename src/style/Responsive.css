@@ -67,7 +67,9 @@
   .serchR{
     width: 90% !important;
   }
-
+  .search-icon-continer{
+    margin-left: 10px;
+  }
 
   .w-l {
     max-width: 100% !important;
