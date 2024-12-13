@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./src/style/bootstrap.rtl.min.css" />
+    <link rel="stylesheet" href="./src/style/style.css" />
+    <link rel="stylesheet" href="./src/style/Responsive.css" />
+    <link rel="stylesheet" href="./src/style/Normalize.css" />
+    <title>دستیار امنیتی اسپارابارا</title>
+  </head>
+  <body class="">
+    <div class="w-100 mx-auto container-lg">
+      <div class="position-relative w-100 z-10">
+        <div class="position-absolute end-0 sircel2"></div>
+        <div class="sircal1"></div>
+      </div>
+      <header>
+        <nav
+          class="navbar w-100 shod-s m-t-nav navbar-expand-lg navbar-light galss-light"
+        >
+          <div class="container-fluid TEXT-nav">
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <!--nav-->
+            <div class="navbar-collapse collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                  <a href="./index.html" class="a-pc a-link nav-link active"
+                    >صفحه ی اصلی</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a href="#" class="a-pc a-link nav-link">خدمات ما</a>
+                </li>
+                <li class="nav-item">
+                  <a href="#" class="a-pc a-link nav-link">درباره ی ما</a>
+                </li>
+                <li class="nav-item">
+                  <a href="#" class="a-pc a-link nav-link">تماس با ما</a>
+                </li>
+                <li class="nav-item">
+                  <a
+                    href=""
+                    class="nav-link d-none none-sing-m a-link boredr-s-sing mx-auto text-dark"
+                    >ثبت نام / ورود</a
+                  >
+                </li>
+              </ul>
+            </div>
+
+            <div class="d-flex align-content-center justify-content-between">
+              <div
+                class="m-auto me-5 align-content-center nav-item none-sing boredr-c-sing"
+              >
+                <a href="" class="nav-link d-a">ثبت نام / ورود</a>
+              </div>
+            </div>
+            <div class="d-flex gap-4 justify-content-between">
+              <button
+                class="theme-switcher theme-icon-s d-flex justify-content-center m-auto align-content-center"
+                id="theme-toggler"
+              >
+                <img
+                  id="theme-icon"
+                  src="./src/img/Moon.svg"
+                  class="m-auto"
+                  alt="Theme Icon"
+                />
+              </button>
+              <div
+                class="position-relative navbar-brand d-flex align-content-center w-logo-s"
+              >
+                <div
+                  class="position-absolute start-0 top-0 bg-dark bg-light w-logo"
+                ></div>
+                <div
+                  class="position-absolute bg-dark top-0 end-0 bg-light w-logo"
+                ></div>
+                <div
+                  class="position-absolute bg-dark bottom-0 end-0 bg-light w-logo"
+                ></div>
+                <div
+                  class="position-absolute bg-dark bottom-0 start-0 bg-light w-logo"
+                ></div>
+                <div class="Ellipse12"></div>
+                <div class="w-logo-y"></div>
+              </div>
+            </div>
+          </div>
+        </nav>
+      </header>
+      <main>
+        <section class="form-section gap-2">
+          <h1 class="text-center">دستیار امنیت سایبری</h1>
+          <!-- حوزه کاری -->
+          <div
+            class="w-100 h-sp p-5 gap-2 shod-s r-680px p-3 galss-light flex-wrap d-flex mt-5 justify-content-between align-content-center shadow-lg rounded-start rounded-pill"
+          >
+            <label for="workField" class="my-auto w-f-r"
+              >حوزه کاری خود را انتخاب نمایید:</label
+            >
+            <div style="color: #fff !important" class="form-group w-f-r">
+              <select
+                style="color: #fff !important"
+                class="form-control ch-1"
+                id="workField"
+                onchange="addSelection('حوزه کاری', this.value)"
+              >
+                <option style="background-color: rgb(4, 0, 255)">
+                  انتخاب کنید
+                </option>
+                <option
+                  style="background-color: rgb(4, 0, 255)"
+                  value="فناوری اطلاعات"
+                >
+                  فناوری اطلاعات
+                </option>
+                <option
+                  style="background-color: rgb(4, 0, 255)"
+                  value="منابع انسانی"
+                >
+                  منابع انسانی
+                </option>
+                <option
+                  style="background-color: rgb(4, 0, 255)"
+                  value="بازاریابی"
+                >
+                  بازاریابی
+                </option>
+              </select>
+            </div>
+          </div>
+          <div
+            class="w-100 h-sp p-5 gap-2 shod-s r-680px p-3 galss-light flex-wrap-reverse d-flex mt-5 justify-content-between align-content-center shadow-lg rounded-end rounded-pill"
+          >
+            <div class="form-group w-f-r gap-2">
+              <input
+                type="text"
+                class="form-control search-bg"
+                id="activity"
+                placeholder="فعالیت دقیق خود را وارد کنید"
+                onblur="addSelection('فعالیت دقیق', this.value)"
+              />
+            </div>
+            <label class="w-f-r" for="activity"
+              >فعالیت دقیق خود را وارد نمایید</label
+            >
+          </div>
+
+          <div
+            class="w-100 h-sp shod-s gap-2 r-680px p-3 galss-light flex-wrap d-flex mt-5 justify-content-between align-content-center shadow-lg p-5 rounded-start rounded-pill"
+          >
+            <p class="my-auto">سطح امنیت کاری شما چند است؟</p>
+            <div class="form-group">
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="securityLevel"
+                  value="سطح 1"
+                  onclick="addSelection('سطح امنیت', this.value)"
+                />
+                <label class="form-check-label">سطح 1</label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="securityLevel"
+                  value="سطح 2"
+                  onclick="addSelection('سطح امنیت', this.value)"
+                />
+                <label class="form-check-label">سطح 2</label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="securityLevel"
+                  value="سطح 3"
+                  onclick="addSelection('سطح امنیت', this.value)"
+                />
+                <label class="form-check-label">سطح 3</label>
+              </div>
+            </div>
+          </div>
+          <!-- دارایی های سایبری -->
+          <div
+            class="w-100 h-sp shod-s gap-2 p-5 r-680px p-3 galss-light flex-wrap-reverse d-flex mt-5 justify-content-between align-content-center shadow-lg rounded-end p-5 rounded-pill"
+          >
+            <div class="form-group w-f-r">
+              <select
+                class="form-control"
+                id="cyberAssets"
+                style="color: #fff !important"
+                onchange="addSelection('دارایی سایبری', this.value)"
+              >
+                <option
+                  class="ch-1"
+                  style="background-color: rgb(212, 212, 255)"
+                  value=""
+                >
+                  انتخاب کنید
+                </option>
+                <option
+                  class="ch-1"
+                  style="background-color: rgb(4, 0, 255)"
+                  value="محافظت از داده‌ها"
+                >
+                  محافظت از داده‌ها
+                </option>
+                <option
+                  class="ch-1"
+                  style="background-color: rgb(47, 0, 255)"
+                  value="امنیت شبکه"
+                >
+                  امنیت شبکه
+                </option>
+                <option
+                  class="ch-1"
+                  style="background-color: rgb(0, 0, 255)"
+                  value="محافظت از نقاط انتهایی"
+                >
+                  محافظت از نقاط انتهایی
+                </option>
+              </select>
+            </div>
+            <label class="w-f-r text-center" for="cyberAssets"
+              >دارایی‌های سایبری سازمان خود را انتخاب نمایید</label
+            >
+          </div>
+        </section>
+
+        <section class="results galss-light" id="selectedResults"></section>
+
+        <div class="text-center my-4">
+          <button class="btn btn-primary">پیش‌ برد برای ایمن‌سازی</button>
+        </div>
+      </main>
+    </div>
+    <footer>
+      <div class="content mt-5 w-100">
+        <div class="top">
+          <div class="logo-details">
+            <i class="fab fa-shield-alt"></i>
+            <span class="logo_name">ساتراپ ویرا سازان</span>
+          </div>
+          <div class="media-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        <div class="link-boxes">
+          <ul class="box">
+            <li class="link_name">لینک‌های مهم</li>
+            <li><a href="./index.html">خانه</a></li>
+            <li><a href="./tamas.html">تماس با ما</a></li>
+            <li><a href="./darbarh.html">درباره ما</a></li>
+            <li><a href="./khadamat.html">خدمات</a></li>
+          </ul>
+          <ul class="box">
+            <li class="link_name">خدمات</li>
+            <li><a href="#">امنیت سایبری</a></li>
+            <li><a href="#">اینترنت اشیا (IoT)</a></li>
+            <li><a href="#">دوقلوی دیجیتال</a></li>
+            <li><a href="#">هوش مصنوعی</a></li>
+          </ul>
+          <ul class="box">
+            <li class="link_name">ارتباط با ما</li>
+            <li><a href="#">تلفن: 021-22584956</a></li>
+            <li><a href="#">موبایل: 0912-8406376</a></li>
+            <li><a href="mailto:info@svs-co.com">ایمیل: info@svs-co.com</a></li>
+            <li><a href="#">لینکدین: @satrap-virasazan</a></li>
+          </ul>
+          <ul class="box">
+            <li class="link_name">سایر خدمات</li>
+            <li><a href="#">توسعه اپلیکیشن وب</a></li>
+            <li><a href="#">واقعیت مجازی (VR)</a></li>
+            <li><a href="#">واقعیت افزوده (AR)</a></li>
+            <li><a href="#">برنامه‌نویسی هوشمند</a></li>
+          </ul>
+          <ul class="box input-box m-auto">
+            <li class="link_name">عضویت در خبرنامه</li>
+            <li><input type="text" placeholder="ایمیل خود را وارد کنید" /></li>
+            <li><input type="button" value="مشترک شوید" /></li>
+          </ul>
+        </div>
+      </div>
+      <div class="bottom-details">
+        <div class="bottom_text">
+          <span class="copyright_text">
+            تمامی حقوق برای شرکت ساتراپ ویرا سازان محفوظ است.
+          </span>
+          <span class="policy_terms">
+            <a href="#">سیاست حفظ حریم خصوصی</a>
+            <a href="#">شرایط و ضوابط</a>
+          </span>
+        </div>
+      </div>
+    </footer>
+    <script>
+      function addSelection(category, value) {
+        if (value === "") return;
+
+        const selectedResults = document.getElementById("selectedResults");
+
+        const existingItem = document.querySelector(
+          `.selected-item[data-category="${category}"]`
+        );
+        if (existingItem) {
+          existingItem.querySelector(".item-value").innerText = value;
+        } else {
+          const itemDiv = document.createElement("div");
+          itemDiv.classList.add("selected-item");
+          itemDiv.setAttribute("data-category", category);
+
+          itemDiv.innerHTML = `<span><strong>${category}:</strong> <span class="item-value">${value}</span></span>
+                             <button onclick="removeSelection(this)">حذف</button>`;
+
+          selectedResults.appendChild(itemDiv);
+        }
+
+        updateFormData();
+      }
+
+      function removeSelection(button) {
+        const itemDiv = button.parentElement;
+        itemDiv.remove();
+
+        updateFormData();
+      }
+
+      function removeAllSelections() {
+        const selectedResults = document.getElementById("selectedResults");
+
+        selectedResults.innerHTML = "";
+
+        updateFormData();
+      }
+
+      function updateFormData() {
+        const selectedItems = document.querySelectorAll(".selected-item");
+        const formData = [];
+
+        selectedItems.forEach((item) => {
+          const category = item.getAttribute("data-category");
+          const value = item.querySelector(".item-value").innerText;
+          formData.push({ category, value });
+        });
+
+        console.log("Updated form data:", formData);
+
+        const hiddenField = document.getElementById("formDataField");
+        if (hiddenField) {
+          hiddenField.value = JSON.stringify(formData);
+        }
+      }
+    </script>
+    <script src="./src/js/bootstrap.bundle.min.js"></script>
+    <script src="./src/js/dark_modes.js"></script>
+  </body>
+</html>
