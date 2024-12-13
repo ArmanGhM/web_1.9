@@ -87,7 +87,6 @@ width: 100% !important;
   }
 
   .w-p {
-    text-align: justify;
     font-size: 19px !important;
   }
 
@@ -135,6 +134,13 @@ width: 100% !important;
     .text-1 .nav-link {
       font-size: 0.9rem;
       padding: 6px 12px;
+    }
+    .bt-r{
+      font-size: 18px !important;
+      margin: auto !important;
+    }
+    .t-sc{
+      font-size: 18px !important;
     }
   }
   
