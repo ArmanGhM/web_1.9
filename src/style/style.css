@@ -374,7 +374,9 @@ h1,
 p {
   transition: color 0.5s;
 }
-
+body.dark-mode h1{
+  color: #0077b5 !important;
+}
 body.dark-mode h1,
 body.dark-mode p {
   color: #ffffff;

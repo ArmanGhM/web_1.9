@@ -87,6 +87,9 @@
   .w-p {
     font-size: 16px !important;
     text-align: justify;
+    hyphens: auto;
+    text-justify: inter-word;
+    word-spacing: 0.5px;
   }
 
   .sircal1,
@@ -122,6 +125,12 @@
 @media (max-width: 480px) {
   .h1-s {
     font-size: 1.2rem;
+  }
+  .w-p {
+    font-size: 15px !important;
+    text-align: justify;
+    hyphens: auto;
+    text-justify: inter-word;
   }
 
   .header-text {
