@@ -64,6 +64,7 @@
   .text-2 {
     margin-top: 0px !important ;
   }
+  
   .serchR{
     width: 90% !important;
   }
@@ -86,7 +87,7 @@
  
   .w-p {
     font-size: 16px !important;
-    text-align: justify;
+
     hyphens: auto;
     text-justify: inter-word;
     word-spacing: 0.5px;
@@ -127,8 +128,7 @@
     font-size: 1.2rem;
   }
   .w-p {
-    font-size: 15px !important;
-    text-align: justify;
+    font-size: 15.6px !important;
     hyphens: auto;
     text-justify: inter-word;
   }
