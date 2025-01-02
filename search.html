@@ -141,7 +141,9 @@
               دیگر هیچ اصطلاحی برای شما مبهم نخواهد ماند! این دیکشنری آخرین ورژن
               اصطلاحات و لغات را بر اساس کتاب دیکشنری امنیت سایبری گردآوری کرده
               است.
+              <span class=" fa-bold text-primary">این دیکشنری بر گرفته از کتاب دیکشنری امنیت سایبری نوشته آقای ناصر مدیری و خانم یاسمن پولادزاده می‌باشد.</span>
             </p>
+            
             <div class="search-container m-3 position-relative">
               <input
                 class="serchR"
@@ -152,7 +154,7 @@
               />
               
               <div class="text-dark" id="suggestions"></div>
-              <div class="search-icon-continer position-absolute suggestions">
+              <div oninput="showSuggestions(this.value)" class="search-icon-continer pointer position-absolute suggestions">
                 <img
                   src="./src/img/Search_Magnifying_Glass.svg"
                   alt="search galss-light"
@@ -180,7 +182,7 @@
             <a
               href="./Cyber ​​security.html"
               style="color: #fff !important"
-              class="p-4 nav-link my-auto"
+              class="p-3 nav-link my-auto"
               >شروع ایمن سازی با دستیار امنیت سایبری</a
             >
           </div>

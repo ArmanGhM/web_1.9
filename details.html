@@ -141,9 +141,10 @@
       <div class="w-100 d-flex justify-content-center align-items-center">
         <h1 class="m-5 m-md-4 text-primary">جستجو</h1>
       </div>
-      <div id="details"></div>
+      <main class="">
+        <div id="details" class="m-auto vh-100  w-100 "></div>
+      </main>
     </div>
-
     <footer>
       <div class="content mt-5">
         <div class="top">
@@ -214,10 +215,10 @@
       if (selectedItem) {
         detailsDiv.innerHTML = `
        <div
-          class="w-100 r-680px shod-s div_s_r h-sp p-md-5 p-2 galss-light flex-wrap d-flex justify-content-between align-content-center shadow-lg rounded-start rounded-pill"
+          class="w-100 m-auto r-680px shod-s div_s_r h-sp p-md-5 p-2 galss-light flex-wrap d-flex justify-content-between align-content-center shadow-lg rounded-start rounded-pill"
         >
-        <h2 class="mx-auto h-risponsiv text-h3">${selectedItem.fa} (${selectedItem.en})</h2>
-        <p class="">${selectedItem.description}</p>
+        <h2 class="m-auto h-risponsiv text-h3">${selectedItem.fa} (${selectedItem.en})</h2>
+        <p class="m-auto">${selectedItem.description}</p>
          </div>
       `;
       } else {

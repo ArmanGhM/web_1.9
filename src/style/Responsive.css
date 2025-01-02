@@ -175,6 +175,7 @@
   }
   .width_input {
     width: 280px !important;
+    margin: auto ;
   }
 }
 
@@ -231,8 +232,6 @@
   }
 
   #suggestions {
-    top: 45px;
-
     max-height: 150px;
   }
 }
