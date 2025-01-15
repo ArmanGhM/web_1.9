@@ -10,74 +10,127 @@
     <title>ثبت نام</title>
   </head>
   <body class="bg_color">
-    <div
-      class="container-lg vh-100 d-flex justify-content-center align-content-center w-100 h-100"
-    >
+    <div class="container-lg vh-100 d-flex justify-content-center align-items-center w-100 h-100">
       <div class="container_login continer-from py-4">
         <div class="login-box">
-          <form
-            class="d-flex gap-3 flex-column justify-content-center align-content-center"
-          >
+          <form id="register-form" class="d-flex gap-3 flex-column justify-content-center align-items-center">
             <h1 class="h1_login text-white m-auto">ثبت نام</h1>
+            
+            <!-- نام کاربری -->
             <div class="user-box">
-              <input
-                type="text"
-                name=""
-                class="width_input"
-                required=""
-                placeholder="نام کاربری"
-              />
+              <input type="text" id="username" class="width_input" required placeholder="نام کاربری" />
+              <small id="username-error" class="text-danger"></small>
             </div>
+            
+            <!-- شماره تلفن -->
             <div class="user-box">
-              <input
-                type="tel"
-                class="width_input"
-                dir="ltr"
-                required=""
-                placeholder="شماره تلفن"
-              />
+              <input type="tel" id="phone" class="width_input" required placeholder="شماره تلفن" />
+              <small id="phone-error" class="text-danger"></small>
             </div>
+            
+            <!-- ایمیل -->
             <div class="user-box">
-              <input
-                type="text"
-                name=""
-                class="width_input"
-                required=""
-                placeholder="ایمیل"
-              />
+              <input type="email" id="email" class="width_input" required placeholder="ایمیل" />
+              <small id="email-error" class="text-danger"></small>
             </div>
+            
+            <!-- رمز عبور -->
             <div class="user-box">
-              <input
-                type="password"
-                name=""
-                class="width_input"
-                required=""
-                placeholder="رمز ورود"
-              />
+              <input type="password" id="password" class="width_input" required placeholder="رمز ورود" />
+              <small id="password-error" class="text-danger"></small>
             </div>
+            
+            <!-- هشدار امنیتی -->
             <div class="w-75 w-m p-register m-auto text-white">
               <p class="text-center w-100 h-100">
-                هممون از حملات سایبری آگاه هستیم، واسه همین پیشنهاد ما به شما،
-                استفاده از یک ایمیل غیر کاری هست که کسی نتونه به شما و ما حملات
-                سایبری بکنه..
+                هممون از حملات سایبری آگاه هستیم، واسه همین پیشنهاد ما به شما، استفاده از یک ایمیل غیر کاری هست که کسی نتونه به شما و ما حملات سایبری بکنه..
               </p>
             </div>
+            
+            <!-- لینک ورود -->
             <div class="div_p d-flex justify-content-center">
               <p>حساب کاربری دارید؟</p>
               <a class="a-p text-white" href="./login.html">وارد شوید</a>
             </div>
 
-            <center>
-              <div class="btn-login m-auto">
-                <a class="a-div m-auto nav-link btn-login" href="#">
-                  ثبت نام
-                </a>
-              </div>
-            </center>
+            <!-- دکمه ثبت نام -->
+            <div class="btn-login m-auto">
+              <button type="submit" class="a-div m-auto border-0 nav-link btn-login">ثبت نام</button>
+            </div>
           </form>
         </div>
       </div>
     </div>
+
+    <script>
+      const form = document.getElementById("register-form");
+
+      form.addEventListener("submit", async (event) => {
+        event.preventDefault();
+
+        // Clear previous error messages
+        document.querySelector("#username-error").textContent = "";
+        document.querySelector("#phone-error").textContent = "";
+        document.querySelector("#email-error").textContent = "";
+        document.querySelector("#password-error").textContent = "";
+
+        const formData = {
+          username: document.getElementById("username").value.trim(),
+          phone: document.getElementById("phone").value.trim(),
+          email: document.getElementById("email").value.trim(),
+          password: document.getElementById("password").value.trim(),
+        };
+
+        // اعتبارسنجی داده‌ها
+        let hasError = false;
+
+        if (!formData.username || formData.username.length < 3) {
+          document.querySelector("#username-error").textContent = "نام کاربری باید حداقل ۳ کاراکتر باشد.";
+          hasError = true;
+        }
+        if (!formData.phone || formData.phone.length < 10) {
+          document.querySelector("#phone-error").textContent = "لطفاً شماره تلفن را به‌درستی وارد کنید.";
+          hasError = true;
+        }
+        if (!formData.email || !/\S+@\S+\.\S+/.test(formData.email)) {
+          document.querySelector("#email-error").textContent = "لطفاً یک ایمیل معتبر وارد کنید.";
+          hasError = true;
+        }
+        if (!formData.password || formData.password.length < 6) {
+          document.querySelector("#password-error").textContent = "رمز عبور باید حداقل ۶ کاراکتر باشد.";
+          hasError = true;
+        }
+
+        if (hasError) {
+          return; // اگر خطا وجود دارد، ادامه ندهید
+        }
+
+        // ارسال داده‌ها به سرور
+        try {
+          const response = await fetch("http://127.0.0.1:5000/register", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(formData),
+          });
+
+          const result = await response.json();
+
+          if (response.ok) {
+            alert(result.message); // ثبت‌نام موفقیت‌آمیز
+            window.location.href = "./index.html"; // انتقال به صفحه ورود
+          } else {
+            alert(result.message); // خطا در ثبت‌نام
+          }
+        } catch (error) {
+          console.error("خطا در ارسال درخواست:", error);
+          alert("مشکلی در ارتباط با سرور رخ داده است. لطفاً دوباره تلاش کنید.");
+        }
+      });
+    </script>
+
     <script src="./src/js/dark_modes.js"></script>
   </body>
 </html>
+

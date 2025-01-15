@@ -11,45 +11,103 @@
   </head>
   <body class="bg_color">
     <div class="container-lg">
-      <header>
-      </header>
+      <header></header>
       <main class="">
-        <div
-          class="container_login flex align-content-center justify-content-center vh-100">
+        <div class="container_login flex align-content-center justify-content-center vh-100">
           <div class="login-box continer-from py-4">
-            <form
-              class="gap-4 d-flex flex-column justify-content-center align-content-around">
+            <form id="login-form" class="gap-4 d-flex flex-column justify-content-center align-content-around">
               <h1 class="mx-auto text-white">ورود به سایت</h1>
+              
+              <!-- نام کاربری -->
               <div class="user-box">
-                <input
-                  type="text"
-                  name=""
-                  class="width_input"
-                  required=""
-                  placeholder="نام کاربری" />
+                <input type="text" name="username" class="width_input" required placeholder="نام کاربری" />
+                <span id="username-error" class="text-danger" style="display: none;"></span>
               </div>
+
+              <!-- رمز عبور -->
               <div class="user-box">
-                <input
-                  type="password"
-                  name=""
-                  class="width_input"
-                  placeholder="رمز ورود"
-                  required="" />
+                <input type="password" name="password" class="width_input" placeholder="رمز ورود" required />
+                <span id="password-error" class="text-danger" style="display: none;"></span>
               </div>
+              
               <div class="div_p d-flex m-auto">
                 <p class="text-white">حساب کاربری ندارید؟</p>
-                <a class="a-p text-white " href="./Register.html"> ثبت نام کنید</a>
+                <a class="a-p text-white" href="./Register.html">ثبت نام کنید</a>
               </div>
-                <div class="d-flex mx-auto justify-content-center btn-login align-content-center">
-                  <a class="a-div  text-center m-auto nav-link" href="#">
-                    ورود
-                  </a>
-                </div>
+
+              <div class="d-flex mx-auto justify-content-center btn-login align-content-center">
+                <button type="submit" class="a-div text-center bg-white border-0 m-auto nav-link">ورود</button>
+              </div>
             </form>
           </div>
         </div>
       </main>
     </div>
+
+    <script>
+      const form = document.getElementById("login-form");
+
+      form.addEventListener("submit", async (event) => {
+        event.preventDefault();
+
+        const username = form.username.value.trim();
+        const password = form.password.value.trim();
+        let valid = true;
+
+        // حذف پیام خطاهای قبلی
+        document.getElementById("username-error").style.display = 'none';
+        document.getElementById("password-error").style.display = 'none';
+
+        // اعتبارسنجی نام کاربری
+        if (!username) {
+          document.getElementById("username-error").innerText = "لطفاً نام کاربری را وارد کنید.";
+          document.getElementById("username-error").style.display = 'block';
+          valid = false;
+        } else if (username.length < 3) {
+          document.getElementById("username-error").innerText = "نام کاربری باید حداقل ۳ کاراکتر باشد.";
+          document.getElementById("username-error").style.display = 'block';
+          valid = false;
+        }
+
+        // اعتبارسنجی رمز عبور
+        if (!password) {
+          document.getElementById("password-error").innerText = "لطفاً رمز عبور را وارد کنید.";
+          document.getElementById("password-error").style.display = 'block';
+          valid = false;
+        } else if (password.length < 6) {
+          document.getElementById("password-error").innerText = "رمز عبور باید حداقل ۶ کاراکتر باشد.";
+          document.getElementById("password-error").style.display = 'block';
+          valid = false;
+        }
+
+        // اگر همه چیز درست است، ارسال داده‌ها
+        if (valid) {
+          const formData = { username, password };
+
+          try {
+            const response = await fetch("https://127.0.0.1:5000/login", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(formData),
+            });
+
+            const result = await response.json();
+
+            if (response.ok) {
+              window.location.href = "./index.html"; // انتقال به داشبورد
+            } else {
+              alert(result.message); // خطا در ورود
+            }
+          } catch (error) {
+            console.error("خطا در ارسال درخواست:", error);
+            alert("مشکلی در ارتباط با سرور رخ داده است.");
+          }
+        }
+      });
+    </script>
+
     <script src="./src/js/dark_modes.js"></script>
     <script src="src/js/bootstrap.bundle.min.js"></script>
   </body>
